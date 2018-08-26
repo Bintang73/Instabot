@@ -137,20 +137,20 @@ async function ngeComment(session, id, text){
 const Excute = async function(User, TargetUsername, Text, sleep, mysyntx){
 	try {
 		
-		/** TRY TO LOGIN **/
+		/** MENCOBA LOGIN **/
 		console.log('\n');
-		console.log('[?] Try to Login . . .');
+		console.log('[?] Mencoba Login . . .');
 		const doLogin = await Login(User);
 		console.log(chalk`{bold.green [!] Login Succsess!}`);
 
-		/** TRY TO GET ALL MEDIA **/	
+		/** MENCOBA MENDAPATKAN SEMUA MEDIA **/	
 		console.log('[?] Try to get Media . . .')		
 		const getTarget = await Target(TargetUsername);
 		var getMedia = await Media(doLogin.session, getTarget.id);
 		console.log(chalk`{bold.green [!] Succsess to get Media From [${TargetUsername}] }\n`);
 		getMedia = _.chunk(getMedia, mysyntx);
 
-		/** TRY TO DELETE ALL MEDIA **/
+		/** MENCOBA MENGHAPUS SEMUA MEDIA **/
 		for (let i = 0; i < getMedia.length; i++) {
 			console.log('[?] Try to Like Photo/Delay \n')
 			await Promise.all(getMedia[i].map(async(media) => {
@@ -178,6 +178,7 @@ console.log(chalk`
   [✓] FIXING & TESTING BY SYNTAX (@officialputu_id)
   [✓] CCOCOT.CO | BC0DE.NET | NAONLAH.NET | WingkoColi
   [✓] SGB TEAM REBORN | Zerobyte.id | @bintang_nur_pradana 
+  [✓] FIX 2018 BY @bintang_nur_pradana
   —————————————————————————————————————————————————————
   What's new?
   1. Input Target/delay Manual (ITTYW)
